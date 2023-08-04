@@ -1,0 +1,797 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/4/2023 10:59:04 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-N5IF1R1"
+  DTS:CreatorName="DESKTOP-N5IF1R1\romeo"
+  DTS:DTSID="{852063A9-11D2-4E9C-BF2C-855F8166D1F2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{37D8FDE3-101C-4A35-90AF-4CF2A89D5B65}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-N5IF1R1\TFSSQLEXPRESS.NagaStore]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F60F802A-E0C0-4E57-A4BC-B15D70527DDC}"
+      DTS:ObjectName="DESKTOP-N5IF1R1\TFSSQLEXPRESS.NagaStore">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-N5IF1R1\TFSSQLEXPRESS;Initial Catalog=NagaStore;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{F60F802A-E0C0-4E57-A4BC-B15D70527DDC}DESKTOP-N5IF1R1\TFSSQLEXPRESS.NagaStore;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-N5IF1R1\TFSSQLEXPRESS.SSISDemo]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B69DE5B5-F886-4A8C-B1DF-45A3BFF51F2C}"
+      DTS:ObjectName="DESKTOP-N5IF1R1\TFSSQLEXPRESS.SSISDemo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-N5IF1R1\TFSSQLEXPRESS;Initial Catalog=SSISDemo;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B69DE5B5-F886-4A8C-B1DF-45A3BFF51F2C}DESKTOP-N5IF1R1\TFSSQLEXPRESS.SSISDemo;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8392C256-C0A3-4090-A376-CF9F8AC58152}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Client Info"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Client Info"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Clients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Client Info.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-N5IF1R1\TFSSQLEXPRESS.SSISDemo]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-N5IF1R1\TFSSQLEXPRESS.SSISDemo]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Prenom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Prenom]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Prenom]"
+                      name="Prenom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Nom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Nom]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Nom]"
+                      name="Nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Date_naissance]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Date_naissance]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Date_naissance]"
+                      name="Date_naissance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Code_postal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Code_postal]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Code_postal]"
+                      name="Code_postal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Sexe]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      name="Sexe"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Marque_voiture]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Marque_voiture]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Marque_voiture]"
+                      name="Marque_voiture"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Prenom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Prenom" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Nom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nom" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Date_naissance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Date_naissance" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Code_postal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Code_postal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sexe" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].ExternalColumns[Marque_voiture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Marque_voiture" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Prenom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Prenom]"
+                      name="Prenom" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Nom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Nom]"
+                      name="Nom" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Date_naissance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Date_naissance]"
+                      name="Date_naissance" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Code_postal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Code_postal]"
+                      name="Code_postal" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Sexe]"
+                      name="Sexe" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Marque_voiture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[Marque_voiture]"
+                      name="Marque_voiture" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Load Client Cleaned in DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load Client Cleaned in DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Clients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Load Client Cleaned in DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-N5IF1R1\TFSSQLEXPRESS.NagaStore]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-N5IF1R1\TFSSQLEXPRESS.NagaStore]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].Columns[Prenom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Prenom"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Prenom]"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Prenom]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].Columns[Nom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nom"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Nom]"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Nom]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].Columns[Date_naissance]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Date_naissance"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Date_naissance]"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Date_naissance]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].Columns[Code_postal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Code_postal"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Code_postal]"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Code_postal]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].Columns[Marque_voiture]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Marque_voiture"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Marque_voiture]"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Marque_voiture]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].Columns[Sexe]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Sexe"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Sexe]"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Sexe]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Prenom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Prenom" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Nom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nom" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Date_naissance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Date_naissance" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Code_postal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Code_postal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Sexe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sexe" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input].ExternalColumns[Marque_voiture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Marque_voiture" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Load Client Cleaned in DB.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Load Client Cleaned in DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load Client Cleaned in DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Load Client Cleaned in DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Tranform NOM in upper"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Tranform NOM in upper"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Tranform NOM in upper.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Tranform NOM in upper.Inputs[Derived Column Input].Columns[Nom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nom"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Nom]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[UPPER](#{Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output].Columns[Nom]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(Nom)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Tranform NOM in upper.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Tranform NOM in upper.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Tranform NOM in upper.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Tranform NOM in upper.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tranform NOM in upper.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tranform NOM in upper.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tranform NOM in upper.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tranform NOM in upper.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Load Client Cleaned in DB.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Tranform NOM in upper.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Tranform NOM in upper.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Client Info.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{13AC8759-3DFE-4B70-88DE-ED30F2105BCE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F60F802A-E0C0-4E57-A4BC-B15D70527DDC}"
+          SQLTask:SqlStatementSource="DELETE FROM Clients" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FD81E069-AF9D-4905-BA19-6465FD54C4BA}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="150.714288280935,179.705884873248" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="147.857145375135,49.7058830500474" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="227.485716828035,91.3058830500474">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88.400001823201"
+              Start="0,0"
+              End="0,80.900001823201">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.900001823201" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\Data Flow Task\Client Info"
+          TopLeft="160.714288451234,27.5294121507955" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Data Flow Task\Load Client Cleaned in DB"
+          TopLeft="118.571430590688,224.058826671752" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Data Flow Task\Tranform NOM in upper"
+          TopLeft="139.285716657736,123.117648785502" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="224.314288451234,69.1294121507955">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.1714282065023,53.9882366347066"
+              Start="0,0"
+              End="10.1714282065023,46.4882366347066">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9941183173533" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.9941183173533"
+                    Point2="0,26.9941183173533"
+                    Point3="4,26.9941183173533" />
+                  <mssgle:LineSegment
+                    End="6.17142820650233,26.9941183173533" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.17142820650233,26.9941183173533"
+                    Point2="10.1714282065023,26.9941183173533"
+                    Point3="10.1714282065023,30.9941183173533" />
+                  <mssgle:LineSegment
+                    End="10.1714282065023,46.4882366347066" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="234.485716657736,164.717648785502">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.914286067048,59.3411778862501"
+              Start="0,0"
+              End="-15.914286067048,51.8411778862501">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.670588943125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.670588943125"
+                    Point2="0,29.670588943125"
+                    Point3="-4,29.670588943125" />
+                  <mssgle:LineSegment
+                    End="-11.914286067048,29.670588943125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.914286067048,29.670588943125"
+                    Point2="-15.914286067048,29.670588943125"
+                    Point3="-15.914286067048,33.670588943125" />
+                  <mssgle:LineSegment
+                    End="-15.914286067048,51.8411778862501" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Client Info">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Load Client Cleaned in DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
